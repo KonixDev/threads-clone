@@ -5,8 +5,6 @@ export default authMiddleware({
   publicRoutes: [
     "/api/webhook/clerk",
     "/api/uploadthing",
-    "/sign-in",
-    "/sign-up",
   ],
 
   // An array of routes to be ignored by the authentication middleware.
