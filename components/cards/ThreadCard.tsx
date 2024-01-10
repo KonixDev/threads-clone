@@ -1,6 +1,8 @@
+import { formatDateString } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import DeleteThread from "../forms/DeleteThread";
 
 interface Props {
   id: string;
@@ -39,6 +41,7 @@ export const ThreadCard = ({
   comments,
   isComment,
 }: Props) => {
+  
   return (
     <article
       className={`flex w-full flex-col rounded-xl ${
@@ -65,7 +68,9 @@ export const ThreadCard = ({
               </h4>
             </Link>
             <p className="mt-2 text-small-regular text-light-2">{content}</p>
-            <div className={`mt-5 flex flex-col gap-3 ${isComment ? 'mb-10' : ''}`}>
+            <div
+              className={`mt-5 flex flex-col gap-3 ${isComment ? "mb-10" : ""}`}
+            >
               <div className="flex gap-3.5">
                 <Image
                   src={"/assets/heart-gray.svg"}
@@ -110,7 +115,32 @@ export const ThreadCard = ({
             </div>
           </div>
         </div>
+        <DeleteThread
+          threadId={JSON.stringify(id)}
+          currentUserId={currentUserId}
+          authorId={author.id}
+          parentId={parentId}
+          isComment={isComment}
+        />
       </div>
+
+      {!isComment && community && (
+        <Link
+          href={`/communities/${community.id}`}
+          className="mt-5 flex items-center"
+        >
+          <p className="text-subtle-medium text-gray-1">
+            {formatDateString(createdAt)} - {community.name} Community
+          </p>
+          <Image
+            src={community.image}
+            alt={community.name}
+            width={14}
+            height={14}
+            className="ml-1 rounded-full object-cover"
+          />
+        </Link>
+      )}
     </article>
   );
 };

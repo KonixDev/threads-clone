@@ -1,6 +1,7 @@
 import { fetchUserPosts } from "@/lib/actions/thread.actions";
 import React from "react";
 import { ThreadCard } from "../cards/ThreadCard";
+import { fetchCommunityDetails, fetchCommunityPosts } from "@/lib/actions/community.actions";
 
 interface Props {
   currentUserId: string;
@@ -10,7 +11,18 @@ interface Props {
 
 const ThreadsTab = async ({ currentUserId, accountId, accountType }: Props) => {
   // TODO: Implement ThreadsTab
-  let results = await fetchUserPosts(accountId);
+  let results: any;
+
+  if(accountType === 'Community'){
+    results = await fetchCommunityPosts(accountId);
+    results.threads.map((thread: any) => {
+      console.log(JSON.stringify(thread.community));
+    });
+  }else{
+    results = await fetchUserPosts(accountId);
+  }
+
+
   if (!results) return <div>No results</div>;
 
   return (
@@ -32,7 +44,7 @@ const ThreadsTab = async ({ currentUserId, accountId, accountType }: Props) => {
                     id: thread.author.id,
                   }
             } // todo:
-            community={thread.community} //todo:
+            community={null} //todo:
             createdAt={thread.createdAt}
             comments={thread.children}
           />
