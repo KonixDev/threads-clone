@@ -3,7 +3,7 @@ import { currentUser } from "@clerk/nextjs";
 import UserCard from "../cards/UserCard";
 
 import { fetchCommunities } from "@/lib/actions/community.actions";
-import { fetchUsers } from "../../lib/actions/users.actions";
+import { fetchUsers } from "@/lib/actions/user.actions";
 
 async function RightSidebar() {
   const user = await currentUser();

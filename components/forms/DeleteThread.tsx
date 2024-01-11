@@ -25,19 +25,6 @@ function DeleteThread({
 
   if (currentUserId !== authorId || pathname === "/") return null;
 
-  const handleDeleteThread = async (e: any) => {
-    e.preventDefault();
-    //Are you sure dialog
-    const confirmation = confirm("Are you sure you want to delete this thread?");
-    if (confirmation) {
-      await deleteThread(JSON.parse(threadId), pathname);
-          if (!parentId || !isComment) {
-            router.push(pathname);
-          }
-      }
-  };
-
-
   return (
     <Image
       src='/assets/delete.svg'
@@ -45,8 +32,11 @@ function DeleteThread({
       width={18}
       height={18}
       className='cursor-pointer object-contain'
-      onClick={async (e) => {
-        handleDeleteThread(e);
+      onClick={async () => {
+        await deleteThread(JSON.parse(threadId), pathname);
+        if (!parentId || !isComment) {
+          router.push("/");
+        }
       }}
     />
   );

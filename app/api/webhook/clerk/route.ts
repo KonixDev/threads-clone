@@ -67,7 +67,6 @@ export const POST = async (request: Request) => {
     // Show what evnt?.data sends from above resource
     const { id, name, slug, logo_url, image_url, created_by } =
       evnt?.data ?? {};
-      console.log("organization.created", evnt?.data);
 
     try {
       // @ts-ignore
@@ -83,8 +82,6 @@ export const POST = async (request: Request) => {
 
       return NextResponse.json({ message: "User created" }, { status: 201 });
     } catch (err) {
-      console.log("Error on creating organization on DB", err,);
-      console.log("Error on creating organization on DB", evnt?.data);
       console.log(err);
       return NextResponse.json(
         { message: "Internal Server Error" },

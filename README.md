@@ -29,7 +29,7 @@
 
 ## <a name="introduction">🤖 Introduction</a>
 
-I Build a full stack Threads clone using Next.js 14+ with a redesigned look transformed from a Figma design, user interaction to community management, technical implementation, and various features, including nested deep comments, notifications, real-time-search, and more.  
+I Build a full stack Threads clone using Next.js with a redesigned look transformed from a Figma design, user interaction to community management, technical implementation, and various features, including nested deep comments, notifications, real-time-search, and more.
 
 ## <a name="tech-stack">⚙️ Tech Stack</a>
 
@@ -92,7 +92,7 @@ I Build a full stack Threads clone using Next.js 14+ with a redesigned look tran
 
 👉 **Form Management with React Hook Form**: Efficient management of forms with React Hook Form for a streamlined user input experience.
 
-and many more, including code architecture and reusability 
+and many more, including code architecture and reusability
 
 ## <a name="quick-start">🤸 Quick Start</a>
 
@@ -134,7 +134,7 @@ NEXT_CLERK_WEBHOOK_SECRET=
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
 ```
 
-Replace the placeholder values with your actual credentials. You can obtain these credentials by signing up for the corresponding websites on [MongoDB](https://www.mongodb.com/), [Clerk](https://clerk.com/), and [Uploadthing](https://uploadthing.com/). 
+Replace the placeholder values with your actual credentials. You can obtain these credentials by signing up for the corresponding websites on [MongoDB](https://www.mongodb.com/), [Clerk](https://clerk.com/), and [Uploadthing](https://uploadthing.com/).
 
 **Running the Project**
 
