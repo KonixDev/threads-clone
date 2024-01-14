@@ -40,7 +40,6 @@ export default function RootLayout({
             {/* @ts-ignore */}
             <RightSidebar />
           </main>
-
           <Bottombar />
         </body>
       </html>
